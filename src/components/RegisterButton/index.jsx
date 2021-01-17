@@ -16,10 +16,9 @@ function RegisterButton() {
 
         const date = new Date()
         const m = moment(new Date()).unix()
-        console.log(m)
 
         workMarkRef.add({
-            time: date.toString(),
+            date: date.toString(),
             timestamp: m,
             type: typeOfMark,
             uid: user.uid

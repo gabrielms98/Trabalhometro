@@ -5,7 +5,9 @@ import firebase from 'firebase'
 
 import { firestore, auth } from '../../api/firebase'
 
-import { Container } from './styles'
+import { Container, MarkText, MarkTimeImg, MarkContainer } from './styles'
+import ArrowUp from '../../assets/arrow-up.svg'
+import ArrowDown from '../../assets/arrow-down.svg'
 
 function Points() {
 
@@ -22,16 +24,22 @@ function Points() {
 
     const [values] = useCollectionData(query)
 
-    const formatTime = (time) => {
-        const date = new Date(time)
+    const formatTime = (d) => {
+        const date = new Date(d)
 
-        return `${date.getHours()}:${date.getMinutes()}`
+        return `${date.getHours() < 10 ? '0' + date.getHours() : date.getHours()}:${date.getMinutes() < 10 ? '0'+date.getMinutes() : date.getMinutes()}`
     }
 
     return (
         <Container>
             {values && values.map((snap, i) => (
-                <p key={i}>{formatTime(snap.time)}</p>
+                <MarkContainer>
+                    <MarkText key={i}>{formatTime(snap.date)}</MarkText>
+                    {
+                        snap.type === 'in' ? <MarkTimeImg src={ArrowDown} /> :
+                        <MarkTimeImg src={ArrowUp}/>
+                    }
+                </MarkContainer>
             ))}
         </Container>
     )
