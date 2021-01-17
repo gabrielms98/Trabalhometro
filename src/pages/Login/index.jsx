@@ -30,7 +30,7 @@ function Login() {
                 dispatch({type: 'setWorkMarks', payload: aux})
             })
         }
-    }, [user, history])
+    }, [user, history, dispatch])
 
     const loginWithGoogle = () => {
         

@@ -1,10 +1,9 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { useCollectionData } from 'react-firebase-hooks/firestore'
 import firebase from 'firebase'
 
 import { firestore, auth } from '../../api/firebase'
-import { store } from '../../store/UserProvider'
 
 import { Container } from './styles'
 
@@ -20,8 +19,8 @@ function Points() {
     tomorrow = firebase.firestore.Timestamp.fromDate(new Date(tomorrow))
 
     const query = workMarkRef.where('uid', '==', user.uid).where('timestamp', '>', today.seconds).where('timestamp', '<', tomorrow.seconds)
-    const { state, dispatch } = useContext(store)
-    const [values, loading, error] = useCollectionData(query)
+
+    const [values] = useCollectionData(query)
 
     const formatTime = (time) => {
         const date = new Date(time)
