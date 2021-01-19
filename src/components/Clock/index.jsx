@@ -6,13 +6,17 @@ function Clock() {
     const [timer, setTimer] = useState({})
 
     useEffect(() => {
-        setInterval(() => {
+        const interval = setInterval(() => {
             const date  = new Date();
 
             setTimer({
                 hour: date.getHours(),
                 minute: date.getMinutes()
             })
+
+            return function cleanup() {
+                clearInterval(interval)
+            }
         }, 1000)
     }, [])
 

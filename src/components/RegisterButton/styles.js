@@ -4,7 +4,7 @@ export const Container = styled.button`
    width: 16.625rem;
    height: 4.56rem;
 
-   background: #FFB703;
+   background: #30ACE5;
    color: #F6F6F6;
    font-size: 2.25rem;
    font-weight: bold;
@@ -19,6 +19,8 @@ export const Container = styled.button`
    outline: none;
    appearance: none;
    border: none;
+
+   box-shadow: 0.1em 0.1em 0.2em rgba(0,0,0,0.15);
 
    :hover {
       cursor: pointer;

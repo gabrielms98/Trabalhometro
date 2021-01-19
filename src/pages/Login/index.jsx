@@ -43,7 +43,7 @@ function Login() {
 
     return (
         <Container>
-            <LoginButton onClick={loginWithGoogle}>Login with Google</LoginButton>
+            <LoginButton onClick={loginWithGoogle}>Login com Google</LoginButton>
         </Container>
     )
 }

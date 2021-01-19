@@ -33,8 +33,8 @@ function Points() {
     return (
         <Container>
             {values && values.map((snap, i) => (
-                <MarkContainer>
-                    <MarkText key={i}>{formatTime(snap.date)}</MarkText>
+                <MarkContainer key={i}>
+                    <MarkText>{formatTime(snap.date)}</MarkText>
                     {
                         snap.type === 'in' ? <MarkTimeImg src={ArrowDown} /> :
                         <MarkTimeImg src={ArrowUp}/>

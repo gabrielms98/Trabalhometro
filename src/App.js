@@ -6,7 +6,6 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from './api/firebase'
 
 import Home from './pages/Home'
-import Dashboard from './pages/Dashboard'
 import Login from './pages/Login'
 
 import './App.css'
@@ -19,7 +18,6 @@ function App() {
         <Router >
             <Switch>
                 <Route path="/" exact={true} component={Login} />  
-                <Route path="/settings" component={Dashboard} /> 
                 { !user ? <Redirect to="/" /> : <Route path="/home" exact={true} component={Home}/>}
             </Switch>
         </Router>
